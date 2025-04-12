@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="left"></div>
+    <div class="stuff">
+        <br><br>
+        <h1>Resume</h1>
+        <h2>Anjell Hanley</h2>
+        <hr />
+        <br>
+        <p class="head">Profile</p>
+        <ul>
+            <li>Highly skilled and experienced Cloud Engineer with 3 years of expertise in designing and implementing innovative IT solutions. Committed to driving business success by aligning technology strategies with organizational goals. Seeking a challenging role to utilize my technical proficiency and problem-solving skills to deliver impactful solutions.</li>
+        </ul>
+        <p class="head">Skills</p>
+        <ul>
+            <li>Excellent verbal, interpersonal, and written communication skills</li>
+            <li>Proficiency in various AWS services such as EC2, S3, IAM, RDS, Lamda, Cloudformation</li>
+            <li>Linux | Terraform | Ansible | Kubernetes</li>
+        </ul>
+        <p class="head">Education</p>
+        <ul>
+            <li>Bowie State University</li>
+        </ul>
+        <p class="head">Experience (CloudSpace Consulting LLC) Jan 2020- Present</p>
+        <ul>
+            <li>Designed, built, and deployed and maintained infrastructure on AWS CloudFormation template create AWS infrastructure including but not limited to IAM, EC2, S3, ELB, VPC, ASG, SG, NACL, Nat-gateway, Cloudfront RDS, Route 53, Cloudwatch, SNS, SQS</li>
+            <li>Implemented IAM best practices and role-based access control to reduce the risk of account takeovers by 85%.</li>
+            <li>Providing analytics and forecasts for cloud capacity, troubleshooting analysis, and uptime</li>
+            <li>Provide technical direction and oversight to cloud implementation teams</li>
+            <li>Implement and manage continuous delivery systems and methodologies on AWS</li>
+            <li>Work as part of a team, to design and develop cloud data solutions</li>
+        </ul>
+        <p class="head">Certifications</p>
+        <ul>
+            <li>Certified AWS Cloud Practitioner</li>
+        </ul>
+    </div>
+    <div class="right"></div>
+    <div id="footer">
+        <h2 id="name">Anjell</h2>
+    </div>
+</body>
+</html>
