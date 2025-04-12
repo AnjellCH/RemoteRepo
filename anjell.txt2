@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation Template for EC2 Instance
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-03f2f5212f24db70a
+      KeyName: Cali-key
+      SecurityGroupIds:
+        - sg-023a8ba60b31de3fa
+      SubnetId: subnet-0fa18c02340094717
+      AvailabilityZone: us-west-1a
+      Tags:
+        - Key: Anjell
+          Value: MyInstance 
