@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Launch an EC2 instance in a public subnet using values from the SampleNetwork stack.
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to SSH into the instance
+    Type: AWS::EC2::KeyPair::KeyName
+
+Mappings:
+  RegionMap:
+    us-west-2:
+      AMI: ami-05572e392e80aee89  # Amazon Linux 2 in us-west-2
+    us-east-1:
+      AMI: ami-0e449927258d45bc4  # Amazon Linux 2 in us-east-1
+    eu-west-1:
+      AMI: ami-0ce8c2b29fcc8a346
+
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      KeyName: !Ref KeyName
+      SubnetId: !ImportValue SampleNetwork-SubnetID
+      SecurityGroupIds:
+        - !ImportValue SampleNetwork-SecurityGroupID
+      Tags:
+        - Key: Name
+          Value: LinuxEC2Instance
+
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+
+  EIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      AllocationId: !GetAtt ElasticIP.AllocationId
+      InstanceId: !Ref EC2Instance
+
+Outputs:
+  InstanceId:
+    Description: Instance ID of the EC2
+    Value: !Ref EC2Instance
+
+  PrivateIP:
+    Description: Private IP address of the EC2 instance
+    Value: !GetAtt EC2Instance.PrivateIp
+
+  PublicDNS:
+    Description: Public DNS name of the EC2 instance
+    Value: !GetAtt EC2Instance.PublicDnsName
+
+  ElasticIPAddress:
+    Description: Elastic IP address
+    Value: !Ref ElasticIP
